@@ -2,7 +2,7 @@
 
 <br>
 
-_본 내용은 Andrew.ng 교수님의 [Stanford CS230 강의](https://www.youtube.com/watch?v=733m6qBH-jI)를 기반으로 정리한 것입니다._
+_본 내용은 Andrew.ng 교수님의 [Stanford CS230: Deep Learning | Autumn 2018 | Lecture 8 - Career Advice / Reading Research Papers](https://www.youtube.com/watch?v=733m6qBH-jI) 강의를 기반으로 정리한 것입니다._
 
 <br>
 
