@@ -59,6 +59,8 @@ _본 내용은 Andrew.ng 교수님의 [Stanford CS230 강의]("https://www.youtu
 
 * Introduction과 Conclusion은 Reviewer들에게 해당 논문이 Accept 되어야 하는지 설득하는 부분이라 볼수 있기에, 저자들은 이 두 파트를 작성할 때 논문의 내용을 농축하여 담기에 해당 논문이 말하고자 하는 바를 전반적으로 이해 가능
 
+<br>
+
 * Step 2를 통해 본 논문을 계속해서 읽을지 말지에 대해 결정 가능
 
 <br> 
