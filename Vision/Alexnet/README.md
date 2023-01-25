@@ -18,7 +18,7 @@ ImageNet의 이미지 데이터는 다양한 크기를 띄고 있으며, 모델�
 
 <br>
 
-![그림1](https://user-images.githubusercontent.com/97859215/214329869-a11f5633-45d7-4e1c-9132-227ef37d51fc.png)
+![그림1](https://user-images.githubusercontent.com/97859215/214505022-4aa6a7d1-bad3-4bcf-b3be-278e6ff5f2ec.png)
 
 ```
 1. 직사각형의 Raw Image Data의 짧은 변의 길이를 256 사이즈로 변환
