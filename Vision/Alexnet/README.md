@@ -2,7 +2,7 @@
 
 ## Abstract
 
-본 논문에서 제안한 모델인 Alexnet은 12만 개의 고해상도 이미지 1,000개의 클래스로 분류하는 ImageNet LSVRC-2010 대회에서 기존의 최첨단 모델보다 좋은 성능인 top-1, top-5에서 각각 오차율을 37.5%, 17%를 달성하였다.  Alexnet은 6천만 개의 파라미터와 65만 개의 뉴런, max-pooling을 동반한 5개의 CNN과 3개의 Fully-Connected Layers로 이루어져 있다. 또한 마지막 Fully-Connected Layer에는 1000-way softmax를 적용한다.  본 연구에서 학습 속도 향상을 위해 제안한 방법으로는 GPU 병렬 처리 기법과 non-saturating neurons(본 논문에서는 ReLU 사용)을 사용했다. 또한 과적합 문제를 막기 위해 dropout 기법을 사용하였다.
+본 논문에서 제안한 모델인 Alexnet은 12만 개의 고해상도 이미지 1,000개의 클래스로 분류하는 ImageNet LSVRC-2010 대회에서 기존의 최첨단 모델보다 좋은 성능인 top-1, top-5에서 각각 오차율을 37.5%, 17%를 달성하였다.  Alexnet은 6천만 개의 파라미터와 65만 개의 뉴런, max-pooling을 동반한 5개의 CNN과 3개의 Fully-Connected Layers로 이루어져 있다. 또한 마지막 Fully-Connected Layer에는 1000-way softmax를 적용한다.  본 연구에서 학습 속도 향상을 위해 제안한 방법으로는 GPU 병렬 처리 기법과 non-saturating neurons(본 논문에서는 ReLU 사용)을 사용했다. 또한 과적합 문제를 막기 위해 Dropout 기법을 사용하였다.
 
 <br>
 
@@ -102,7 +102,11 @@ ReLU는 양수 방향으로는 입력 값을 그대로 출력하기 때문에, �
 
 ![overall_arch](https://user-images.githubusercontent.com/97859215/214348948-f498eaef-7431-4ea8-b2a4-11a467ba2748.jpg)
 
-![image](https://user-images.githubusercontent.com/97859215/214492922-5afaac35-55cf-4644-8f1b-1a7b2806ec27.png)
+<p align="center">
+<img src = "https://user-images.githubusercontent.com/97859215/214492922-5afaac35-55cf-4644-8f1b-1a7b2806ec27.png" width="600" height = "700">
+</p>
+
+
 
 <br>
 
@@ -183,11 +187,15 @@ __Alexnet__
 
 ## Result
 
-![image](https://user-images.githubusercontent.com/97859215/214496451-c1a50793-734e-49e5-ab9d-2546ce9efa9b.png)
+<p align="center">
+<img src = "https://user-images.githubusercontent.com/97859215/214496451-c1a50793-734e-49e5-ab9d-2546ce9efa9b.png" width="500" height = "300">
+</p>
 
 ILSVRC-2010 데이터에 대해서 기존 모델이 도출한 결과를 압도하는 결과 제시
 
-![image](https://user-images.githubusercontent.com/97859215/214496712-55c6f102-952e-43a2-adb1-09362837aeb1.png)
+<p align="center">
+<img src = "https://user-images.githubusercontent.com/97859215/214496712-55c6f102-952e-43a2-adb1-09362837aeb1.png" width="700" height = "300">
+</p>
 
 본 결과는 CNN Layer가 많아질수록 오차율이 줄어드는 것을 보여준다.
 
@@ -198,8 +206,10 @@ ILSVRC-2010 데이터에 대해서 기존 모델이 도출한 결과를 압도�
 <img src = "https://user-images.githubusercontent.com/97859215/214498244-b4b1c777-1c6b-4537-a8ec-4f5130d3e159.png" width="300" height = "300">
 </p>
 
+<p align="center">
+<img src = "https://user-images.githubusercontent.com/97859215/214497908-1ad7a460-993f-4ea4-a849-398e7fcda10d.png" width="700" height = "500">
+</p>
 
-![image](https://user-images.githubusercontent.com/97859215/214497908-1ad7a460-993f-4ea4-a849-398e7fcda10d.png)
 
 
 CNN Kernel을 시각화한 Figure 3을 통해, 각 Kernel이 이미지의 다양한 Feature를 효과적으로 추출했음을 보여준다.
