@@ -68,9 +68,10 @@ ReLU Function은 saturation를 방지하기 위해 입력 정규화를 진행할
 <br>
 
 -------------------------
-<center>Local Response Noramlization 이해를 돕기 위한 추가적인 내용</center>
+<p align="center">Local Response Noramlization 이해를 돕기 위한 추가적인 내용</p>
 
 <br>
+
 Local Response Normalization은 측면 억제(lateral inhibition)을 구현한 형태로 타 커널에서 계산된 출력과 경쟁을 일으키는 것이다.
 
 본 내용은 측면 억제의 대표적 예시인 헤르만 격자를 통해 이해해보도록 하겠다.
