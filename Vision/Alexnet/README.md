@@ -1,6 +1,4 @@
-# ImageNet Classification with Deep Convolutional Neural Networks
-
-[Research Paper link](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf)
+# [ImageNet Classification with Deep Convolutional Neural Networks]("(chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf)")
 
 ## Abstract
 
