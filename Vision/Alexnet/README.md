@@ -1,6 +1,6 @@
 # ImageNet Classification with Deep Convolutional Neural Networks
 
-<chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf>
+<https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf>
 
 ## Abstract
 
