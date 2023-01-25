@@ -48,7 +48,7 @@ ImageNet의 이미지 데이터는 다양한 크기를 띄고 있으며, 모델�
 
 <br>
 
-### 1. ReLu Nonlinearity
+### 1. ReLU Nonlinearity
 
 일반적으로 자주 쓰이며 saturating nonlinearity인 Hyperbolic Function이나 Sigmoid Function 대신 non-saturating nonlinearity인 ReLU Function을 채택하였다. 그 이유는 규모가 큰 데이터 셋을 학습 시킬시 동일 오차에 다다르는 속도가 우수하기 때문이다. 
 
