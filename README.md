@@ -8,9 +8,9 @@
 
 
 
-<center>
+<div align='center'>
 
 |[Vision](https://github.com/CKtrace/Research-Paper-Review/tree/main/Vision)|TBA|TBA|TBA|TBA|
 |:---:|:---:|:---:|:---:|:---:|
 
-</center>
+</div>
