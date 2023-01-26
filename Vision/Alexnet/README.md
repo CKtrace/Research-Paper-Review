@@ -178,7 +178,7 @@ __Alexnet__
 - SGD (momentum : 0.9, weight decay : 0.0005)
     - weight decay가 모델 정규화 뿐만 아니라 모델의 학습 오차 또한 감소시켰다.
 - Weight Initialize
-    - 평균 : 0, 표즌 편차 : 0.01인 정규 분포 따르도록 초기화
+    - 평균 : 0, 표준 편차 : 0.01인 정규 분포 따르도록 초기화
     - 두 번째, 네 번째, 다섯 번째 convolution과 dense layer의 편향은 1로 초기화하여 학습 가속화 효과
 - Learning Rate
     - 모든 layer에 대해 동일, but 훈련 수행 중 매뉴얼하게 조정
