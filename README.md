@@ -7,9 +7,9 @@
 # <p align='center'>Topic List</p>
 
 
-<p align="center">
+
+<center>
 
 |[Vision](https://github.com/CKtrace/Research-Paper-Review/tree/main/Vision)|TBA|TBA|TBA|TBA|
 |:---:|:---:|:---:|:---:|:---:|
-
-</p>
+</center>
