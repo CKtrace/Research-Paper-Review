@@ -13,5 +13,4 @@
 |:---:|
 |[Vision](https://github.com/CKtrace/Research-Paper-Review/tree/main/Vision)|
 |TBA|
-
 </p>
