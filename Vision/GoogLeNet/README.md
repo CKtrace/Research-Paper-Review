@@ -24,8 +24,26 @@
 2. Network의 깊이 증가
 ```
 
-Inception은 "Network In Network"의 논리로부터 영감을 받고, "Provable Bounds for Learning Some Deep Representations"에서 진행된 이론적 연구가 지침이 되었다. 
+Inception은 "Network In Network"의 논리로부터 영감을 받고, "Provable Bounds for Learning Some Deep Representations"에서 진행된 이론적 연구가 지침이 되었다. Inception 구조의 이점은 ILSVRC 2014 분류 및 탐지 분야에서 실험적으로 검증됐으며, 당시의 state of the art보다 뛰어난 성능을 보였다.
 
 <br>
 
-Inception 구조의 이점은 ILSVRC 2014 분류 및 탐지 분야에서 실험적으로 검증됐으며, 당시의 state of the art보다 뛰어난 성능을 보였다.
+## Motivation and High Level Considerations
+
+Deep Neural Networks에서 성능을 향상 시키는 가장 단순한 방법은 네트워크의 사이즈를 키우는 것이다. 하지만 이는 아래와 같은 두 가지 문제점이 존재한다.
+
+```
+1. 사이즈가 큰 네트워크는 전형적으로 많은 수의 파라미터를 의미하며, 많은 수의 파라미터의 존재로 과적합이 발생하기 쉽다. 특히, 학습 데이터 셋의 Label의 개수가 제한되어있다면 더욱이다. 
+
+2. 균일하게 증가한 네트워크의 사이즈는 컴퓨터 자원 소비량을 급격하게 증가시킨다.
+```
+
+<br>
+
+위와 같은 문제점들을 해결하기 위한 근본적인 방법을 Fully Connected Layer의 구조를 Sparsely Connected Architectures로 변환하는 것이다. "Provable Bounds for Learning Some Deep Representations"에 따르면 거대한 Sparse Deep Neural Network으로 데이터 셋의 확률 분포가 표현 가능하다면, 최적의 네트워크는 마지막 Layer의 Activation의 Correlation Statistics를 분석하고 상관 관계가 큰 뉴런들끼리 묶으면서 구성할 수 있다. 수학적으로 엄격한 상황은 아니지만, Hebbian Principle과 일치하는 것을 통해 실제 상황에서도 적용할 수 있다는 사실을 얻을 수 있다.
+
+
+<br>
+
+## Architectural Details
+
