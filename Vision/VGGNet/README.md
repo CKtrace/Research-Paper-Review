@@ -46,11 +46,10 @@
 ```
 1. Single ReLU를 사용하는 대신 세 개의 ReLU를 사용하면 결정함수가 더 구체적이게 된다.
 2. 파라미터 수를 줄일 수 있는데, If Channel == C,
-    
+
     - Single 7x7 Convolutional Layer 사용 시 Param => 7**2(C**2) = 49C**2
     - Three Stack 3x3 Convolutional Layer 사용 시 Param => 3(3**2(C**2)) = 27C**2
     - 약 81% 더 줄일 수 있다.
-    
 ```
 
 C 모델에서의 1x1 Convolutional Filter는 타 연구에서 사용된 적이 있지만, 그들이 제안한 Network는 본인들이 제안한 모델들보다 얕았으며, Large-Scale ILSVRC 데이터셋을 사용하지도 않았다고 한다.
