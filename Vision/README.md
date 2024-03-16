@@ -2,7 +2,7 @@
 
 |Title|Journal/Conference|Year|Progress|
 |---|:---:|---|:---:|
-|[Imagenet classification with deep convolutional neural networks](https://github.com/CKtrace/Research-Paper-Review/tree/main/Vision/Alexnet)|NIPS|2012|Implementation ing...|
+|[Imagenet classification with deep convolutional neural networks](https://github.com/CKtrace/Research-Paper-Review/tree/main/Vision/Alexnet)|NIPS|2012|Clear!|
 |[Going Deeper with Convolutions (Inception-v1)](https://github.com/CKtrace/Research-Paper-Review/tree/main/Vision/GoogLeNet)|arXiv|2014|Implementation ing...|
 |[Very Deep Convolutional Networks for Large-Scale Image Recognition](https://github.com/CKtrace/Research-Paper-Review/tree/main/Vision/VGGNet)|arXiv|2015|Implementation ing...|
 |[Deep Residual Learning for Image Recognition (ResNet)]()|arXiv|2015|Will be Updated!|
