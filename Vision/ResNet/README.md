@@ -34,8 +34,10 @@ Deeper Network가 수렴할 때, Degradation Problem이 발생하는데, 이는 
 <figure class="half">  
 <a href="link"><img src="https://github.com/CKtrace/Research-Paper-Review/assets/97859215/f73cf7a7-8512-4e05-95dc-f333943ff046"></a> 
 <a href="link"><img src="https://github.com/CKtrace/Research-Paper-Review/assets/97859215/c17f38c6-59c6-4e33-9fd1-653b7c1fe344"></a>  
-<figcaption>Underlying Mapping(Unreferenced Mapping) & Identity Mapping(Residual Mapping)</figcaption></figure>
+<br>
+<figcaption> Underlying Mapping(Unreferenced Mapping) & Identity Mapping(Residual Mapping) </figcaption> </figure>
 
+<br>
 <br>
 
 본 연구에서는 Degradation Problem을 피할 수 있는 Deep Residual Learning Framework를 소개한다.
@@ -169,4 +171,113 @@ Test에서는 10-Cross Validation 방식을 적용한다.
 <BR>
 <BR>
 
-_(이후부터는 이어서)_
+## Experiment
+
+### ImageNet Classification
+
+<br>
+
+<p align="center">
+  <img src="https://github.com/CKtrace/Research-Paper-Review/assets/97859215/1d026c8d-51e5-4220-a98c-536321cdd489">
+</p> 
+
+<br>
+
+<br>
+
+<p align="center">
+  <img src="https://github.com/CKtrace/Research-Paper-Review/assets/97859215/f742007d-6d49-415b-b39b-a78d7b03ea6b">
+</p> 
+
+<br>
+
+#### Plain Network
+
+해당 Plain Network는 Batch Normalization을 적용하여 학습함을 통해 Forward Propagated Signal이 0이 되지 않도록 할 수 있었다.
+
+또한 Backward Propagated Gradients 또한 healthy norm을 보여준다.
+
+즉, Forward, Backward signal Vanishing Problem이 아닌 Deep Plain Networks가 Exponentially Low convergence Rate를 갖고 있어 training error를 줄인 것으로 예측할 수 있었다고 한다.
+
+<br>
+
+#### Residual Network
+ 
+그들은 모든 Shortcut에 Identity Mapping과 차원 확대를 위한 zero-padding이 적용하여 Plain Network와 Parameter 수 차이가 없는 Residual Network를 실험에 사용하였다.
+
+깊이를 늘려도 Degradation Problem을 피할 수 있었으며, 실험 결과를 통해서 이를 알 수 있었다.
+
+또한 ResNet은 수렴 속도 또한 빠른 것을 알 수 있었다.
+
+<br>
+<br>
+
+## Identity _vs_ Projection Shortcut
+
+<br>
+
+<p align="center">
+  <img src="https://github.com/CKtrace/Research-Paper-Review/assets/97859215/caa0b724-5fb6-43f0-ab21-592c85a5cc11">
+</p> 
+
+<br>
+
+해당 파트에서는 Identity Shortcut과 Projection Shortcut과의 비교한다.
+
+아래 3가지 (A-C) 옵션을 통해 Projection Shortcut의 필요성에 대해 알아보겠다.
+
+(A) 차원을 맞추기 위한 Zero-Padding Shortcut(모든 Shortcut은 Parameter-Free하다.)
+(B) Projection Shortcut은 차원을 늘리기 위해서만 사용하며, 이외의 Shortcuts은 모두 Identity Shortcuts
+(C) 모든 Shortcuts은 Projection Shortcuts을 사용
+
+3가지 옵션을 각각 적용한 ResNet의 결과표를 보았을 때, 세 가지 결과 모두 큰 차이가 없는 것을 알 수 있었다.
+
+이를 통해 Degradation Problem을 해결하기 위해서는 Projection Shortcuts이 반드시 필요한 것은 아닌 것을 알 수 있었다.
+
+또한 Projection Shortcuts은 Computation Complexity를 늘린다.
+
+결과적으로 이제는 (C) 옵션을 사용하지 않는다고 한다.
+
+<br>
+<br>
+
+## Deeper Bottlenexk Architectures
+
+<br>
+
+<p align="center">
+  <img src='https://github.com/CKtrace/Research-Paper-Review/assets/97859215/078e93ea-1c25-442f-a4ad-dd93aa1bd1e5'>
+</p> 
+
+<br>
+
+그들은 Fig5의 Building Block을 수정하여 Bottleneck Design을 제작하였다.
+
+Bottleneck Design은 1x1, 3x3 그리고 1x1 Convolutions으로 이루어져 있다.
+
+1x1 Convolutions은 차원 축소 및 확대 역할을 하며, 3x3 Convolutions은 축소된 입출력 차원의 bottleneck이다.
+
+만약 Identity Shortcut 대신 Projection Shortcut이 대체한다면, Shortcut이 두 고차원에 연결되어 시간 복잡도와 Model Size는 두 배 커지는 것을 볼 수 있다.
+
+따라서 Identity Shortcut은 Bottleneck Design을 한 모델을 더욱 효율적이게 만들어준다.
+
+놀랍게도, 152 Layer를 갖는 ResNet은 VGG-16/19 Networks보다 Lower Complexity를 갖는 것을 알 수 있으며, 152 Layer까지도 34 Layer를 갖는 ResNet보다 더욱 정확한 것을 확인할 수 있었다.
+
+정리하자면, Bottleneck Design을 통해 Degradation Problem이 존재하지 않아 상당한 깊이의 증가에도 상당한 정확도를 얻을 수 있었다는 것이다.
+
+<br>
+<br>
+
+## Exploring Over 1000 Layers
+
+실험 결과에 의하면 1202-Layer ResNet과 110-Layer ResNet은 유사한 Training Error를 갖지만, 1202-Layer ResNet은 110-Layer ResNet보다 결과가 좋지 않았다.
+
+연구진들의 의논 결과 그 이유는 Overfitting 때문이라 생각한다고 한다.
+
+왜냐하면 Strong Regularization(Such as Maxout, Dropout..)이 적용되지 않았기 때문에 Overfitting은 일어났을 것이라고 한다.
+
+추후 연구에서는 Strong Regularization과 결합하여 개선된 결과를 보여줄 것이라 한다.
+
+
+<br>
+<br>
