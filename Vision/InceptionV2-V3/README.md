@@ -142,7 +142,6 @@ dxd grid & k filter => 2 x (d^2) x (k^2)
 
 
 => 연산량은 줄지만 표현력 또한 감소된다. 따라서 연산량은 줄고 표현력은 챙기는 Figure 10. 구조를 제안한다.
-
 ```
 
 <br>
@@ -159,4 +158,105 @@ dxd grid & k filter => 2 x (d^2) x (k^2)
 
 <br>
 
-To be Continue....
+<p align="center">  
+<img src="https://github.com/CKtrace/Research-Paper-Review/assets/97859215/fd4f8efd-9dfd-4b02-a840-59d5ccc479fe" align="center" width="32%"> 
+<img src="https://github.com/CKtrace/Research-Paper-Review/assets/97859215/6a06bf2c-f7bc-41fb-ae86-6c4aec39f3ad" align="center" width="32%">  
+<img src="https://github.com/CKtrace/Research-Paper-Review/assets/97859215/e9645431-3388-47d9-bf0a-3b9cf8256576" align="center" width="32%">  
+<figcaption align="center">3개의 Inception 구조</figcaption>
+</p> 
+
+
+<br>
+
+7x7 Convolution을 3x3 Convolution 세 개로 분해하였다.
+
+또한 Network의 Inception 파트에서는 figure 5의 Inception 구조 3개, figure 6의 Inception 구조 5개, figure 7의 Inception 구조 2개를 사용하였다.
+
+자세한 Network 구조는 아래와 같다.
+
+<br>
+
+<p align="center">  
+<img src="https://github.com/CKtrace/Research-Paper-Review/assets/97859215/9ef04fbe-0a0d-45ea-8c70-341c15b6e2da" align="center"> 
+<figcaption align="center">제안한 Network의 구조</figcaption>
+</p> 
+
+
+<br>
+
+<br>
+<br>
+
+## Training Methodology
+
+<br>
+
+```
+Batch Size : 32
+
+Epochs : 100
+
+Momentum with a decay for 0.9
+
+RMSProp with decay of 0.9 & 앱실론 = 1.0
+
+Learning Rate = 0.045 (two epoch마다 exponential rate of 0.94만큼 감소)
+
+Gradient Clipping with threshold = 2.0 
+```
+
+<br>
+
+
+## Model Regularization via Label Smoothing
+
+<br>
+
+본 파트에서는 Label Smoothing Regularization을 사용하여 성능 개선에 성공하였다고 서술되어 있다.
+
+Label Smoothing Regularization을 간단하게 설명하면, 예를 들어 라벨이 [0, 0, 1, 0]일 때, Label Smoothing을 적용하면 [0.027, 0.027, 0.919, 0.027]과 같이 다른 라벨에도 가능성을 부여하는 방법이다.
+
+<br>
+<br>
+
+
+## Performance on Lower Resolution Input
+
+<br>
+
+요약하자면 저해상도 이미지에서도 좋은 성능을 보였다는 내용이다.
+
+
+<br>
+<br>
+
+## Experimental Results and Comparisons
+
+<br>
+
+<p align="center">  
+<img src="https://github.com/CKtrace/Research-Paper-Review/assets/97859215/7d5d63cc-a7a4-4cd2-b231-3ce40a4b91e9" align="center"> 
+<figcaption align="center">Result Graph</figcaption>
+</p> 
+
+
+<br>
+
+Result Graph의 마지막 Inception-v2 + BN-auxiliary인 Inception-v3를 제안한다.
+
+Inception-v3의 내부는 RMSProp / Label Smoothing / Factorized 7x7 / BN-Auxiliary 로 이루어진다.
+
+
+<br>
+<br>
+
+## Conclusion
+
+<br>
+
+본 논문에서 제안한 방법으로 Convolution을 분해 및 적극적 차원 감소로 인해 적은 계산 비용으로 높은 성능을 얻을 수 있었다고 한다.
+
+낮은 파라미터의 조합 + 추가적인 Regularization + Auxiliary Classifiers의 BN + Label Smoothing이 상대적으로 적은 양의 학습 세트로도 좋은 성능의 학습을 가능케 했다.
+
+<br>
+<br>
