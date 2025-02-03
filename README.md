@@ -10,7 +10,7 @@
 
 <div align='center'>
 
-|[Vision](https://github.com/CKtrace/Research-Paper-Review/tree/main/Vision)|NLP|TBA|TBA|TBA|
+|[Vision](https://github.com/CKtrace/Research-Paper-Review/tree/main/Vision)|[NLP](https://github.com/CKtrace/Research-Paper-Review/tree/main/NLP)|TBA|TBA|TBA|
 |:---:|:---:|:---:|:---:|:---:|
 
 </div>
