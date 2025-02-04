@@ -104,7 +104,11 @@ y 값에 Softmax를 적용시켜 정답 one-hot vector와 값 비교 후 역전�
 
 ## Significance of Paper
 
+<br>
+
 본 모델의 아쉬운 점은 학습하면서 Update 해 나가야 할 Parameter가 C, H, U 등이 있어 계산복잡성이 높다는 점이다.
 
 하지만, 해당 연구를 통해 단어를 Vocabulary의 크기보다 작은 차원의 벡터로 표현하는 시도를 통해 Word2Vec가 탄생할 수 있었으며, 
 Word2Vec는 위의 문제를 고치기 위해 학습해야 하는 Parameter를 줄여냈다고 한다.
+
+<br>
