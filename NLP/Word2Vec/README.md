@@ -112,7 +112,7 @@ Hierarchical Softmax는 기존의 Softmax에 근사한 값을 Sigmoid를 이용�
 
   <img src="https://github.com/user-attachments/assets/6a3c850c-82b8-4faf-9aab-56a1d3758935" width='500' height='500'>
 
-<center>Image Source Link : https://uponthesky.tistory.com/15</center>
+  Image Source Link : https://uponthesky.tistory.com/15
 </p> 
 
 <br>
