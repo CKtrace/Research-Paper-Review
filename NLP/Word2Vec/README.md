@@ -111,7 +111,8 @@ Hierarchical Softmax는 기존의 Softmax에 근사한 값을 Sigmoid를 이용�
 <p align="center">
 
   <img src="https://github.com/user-attachments/assets/6a3c850c-82b8-4faf-9aab-56a1d3758935" width='500' height='500'>
-    Image Source Link : https://uponthesky.tistory.com/15
+
+<center>Image Source Link : https://uponthesky.tistory.com/15</center>
 </p> 
 
 <br>
@@ -197,7 +198,6 @@ CBOW의 구조는 아래와 같다.
 <p align="center">
 
   <img src="https://github.com/user-attachments/assets/6fedbeca-ce8d-4729-a860-debbbea27c3a" width='400' height='500'>
-    CBOW Structure
 </p> 
 
 <br>
@@ -225,7 +225,7 @@ C : 단어들 간의 최대 거리
 <p align="center">
 
   <img src="https://github.com/user-attachments/assets/495613ed-a64b-4f07-b6e2-f5ff64831b73" width='400' height='500'>
-  <center>Skip-gram Structure</center>
+
 </p> 
 
 <br>
