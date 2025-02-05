@@ -225,7 +225,7 @@ C : 단어들 간의 최대 거리
 <p align="center">
 
   <img src="https://github.com/user-attachments/assets/495613ed-a64b-4f07-b6e2-f5ff64831b73" width='400' height='500'>
-    Skip-gram Structure
+    <center>Skip-gram Structure</center>
 </p> 
 
 <br>
