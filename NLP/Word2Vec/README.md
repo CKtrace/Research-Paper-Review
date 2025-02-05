@@ -93,6 +93,7 @@ H : Hidden Layer
 
 </p> 
 
+<br>
 
 H x V 부분에서의 연산량은 후속 연구에서 Hierarchical Softmax로 연산 해야 될 개수가 V개 였는데 이를 log_2(V)로 줄일 수 있었다고 한다.
 
@@ -104,14 +105,18 @@ Hierarchical Softmax는 기존의 Softmax에 근사한 값을 Sigmoid를 이용�
 
 또한 단어의 등장 빈도에 따라 깊이를 달리 하는데, 자주 등장하는 Frequent Word로 깊이가 얕은 곳에 위치하고 가끔 등장하는 Rare Word는 깊게 배치한다.
 
-<br>
-
-<center>
-<img src="https://github.com/user-attachments/assets/6a3c850c-82b8-4faf-9aab-56a1d3758935" width="500" height="500">
-<center>Image Source Link : https://uponthesky.tistory.com/15</center>
-</center>
 
 <br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/6a3c850c-82b8-4faf-9aab-56a1d3758935" width='500' height='500'>
+    Image Source Link : https://uponthesky.tistory.com/15
+</p> 
+
+<br>
+
+
 
 Huffman Tree를 이용한 Hirarchical Softmax의 연산량은 log_2(Unigram_perplexity(V))이고, 기존의 Balanced Binary Tree를 사용한 Hierarchical Softmax의 연산량은 log_2(V)이다.
 
@@ -186,14 +191,17 @@ CBOW의 구조에서 주목해야할 부분은 모든 단어들이 동일한 Wei
 
 CBOW의 구조는 아래와 같다.
 
-<br>
-
-<center>
-<img src="https://github.com/user-attachments/assets/6fedbeca-ce8d-4729-a860-debbbea27c3a" width="400" height="500">
-<center>CBOW Structure</center>
-</center>
 
 <br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/6fedbeca-ce8d-4729-a860-debbbea27c3a" width='400' height='500'>
+    CBOW Structure
+</p> 
+
+<br>
+
 
 
 ### Continuous Skip-gram Model
@@ -214,12 +222,14 @@ C : 단어들 간의 최대 거리
 
 <br>
 
-<center>
-<img src="https://github.com/user-attachments/assets/495613ed-a64b-4f07-b6e2-f5ff64831b73" width="400" height="500">
-<center>Skip-gram Structure</center>
-</center>
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/495613ed-a64b-4f07-b6e2-f5ff64831b73" width='400' height='500'>
+    Skip-gram Structure
+</p> 
 
 <br>
+
 
 ## Result
 
@@ -236,9 +246,11 @@ Word Vector를 훈련시키기 위해 60억 개의 토큰을 포함하는 Google
 
 <br>
 
-<center>
-<img src="https://github.com/user-attachments/assets/7c3cd048-49b0-4f82-a90b-9e1a64a45389" width="700" height="200">
-</center>
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/7c3cd048-49b0-4f82-a90b-9e1a64a45389" width='700' height='200'>
+
+</p> 
 
 <br>
 
@@ -246,11 +258,14 @@ Word Vector를 훈련시키기 위해 60억 개의 토큰을 포함하는 Google
 
 <br>
 
-<center>
-<img src="https://github.com/user-attachments/assets/ecfb93f7-825e-4d7d-897e-510992209a9a" width="700" height="300">
-</center>
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/ecfb93f7-825e-4d7d-897e-510992209a9a" width='700' height='300'>
+
+</p> 
 
 <br>
+
 
 해당 Figure를 통해 RNNLM과 NNLM보다 제안한 두 모델의 성능이 Semantic Task와 Syntactic Task 모두 우수한 것을 확인할 수 있다.
 
@@ -260,9 +275,11 @@ Word Vector를 훈련시키기 위해 60억 개의 토큰을 포함하는 Google
 
 <br>
 
-<center>
-<img src="https://github.com/user-attachments/assets/cd07525e-5a25-42ec-8241-ff9045db9aef" width="800" height="300">
-</center>
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/cd07525e-5a25-42ec-8241-ff9045db9aef" width='800' height='300'>
+
+</p> 
 
 <br>
 
