@@ -84,11 +84,15 @@ D : Input Layer
 H : Hidden Layer
 ```
 
-<br>
-
-<center><img src="https://github.com/user-attachments/assets/4fc90341-97d2-4a5a-8e56-eb84a2733fab" width="300" height="500"></center>
 
 <br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/4fc90341-97d2-4a5a-8e56-eb84a2733fab" width='400' height='700'>
+
+</p> 
+
 
 H x V 부분에서의 연산량은 후속 연구에서 Hierarchical Softmax로 연산 해야 될 개수가 V개 였는데 이를 log_2(V)로 줄일 수 있었다고 한다.
 
