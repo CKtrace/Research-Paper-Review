@@ -42,8 +42,7 @@ CNN은 NLP에서 효과적인 모델이라는 것을 보여줌과 동시에 sema
 
 <p align="center">
 
-  <img src="https://github.com/user-attachments/assets/d3687c73-435a-4779-b089-72b11416058d
-  " width='700' height='300'>
+  <img src="https://github.com/user-attachments/assets/d3687c73-435a-4779-b089-72b11416058d" width='700' height='300'>
 
 </p> 
 
