@@ -1,5 +1,7 @@
 # NLP - Paper List
 
+<br>
+
 |Title|Journal/Conference|Year|Progress|
 |---|:---:|---|:---:|
 |[A Neural Probabilistic Language Model (NNLM)](https://github.com/CKtrace/Research-Paper-Review/tree/main/NLP/NNLM)|JLMR|2003|Clear!|
@@ -11,8 +13,11 @@
 |[Learning Phrase Representations using RNN Encoder–Decoderfor Statistical Machine Translation (Seq2Seq)](https://arxiv.org/pdf/1406.1078)|EMNLP|2014|TBU|
 |[NEURAL MACHINE TRANSLATIONBY JOINTLY LEARNING TO ALIGN AND TRANSLATE (Seq2Seq with Attention)](https://arxiv.org/pdf/1409.0473)|ICLR|2015|TBU|
 
+<br>
 
 ## LLM - Paper List
+
+<br>
 
 |Title|Journal/Conference|Year|Progress|
 |---|:---:|---|:---:|
