@@ -21,7 +21,7 @@
 
 |Title|Journal/Conference|Year|Progress|
 |---|:---:|---|:---:|
-|[Attention is all you need (Transformer)](https://arxiv.org/pdf/1706.03762)|arxiv|2017|TBU|
+|[Attention is all you need (Transformer)](https://arxiv.org/pdf/1706.03762)|NIPS|2017|TBU|
 |[BERT: Pre-traning of Deep Bidrectional Tranformers for Language Understanding](https://arxiv.org/pdf/1810.04805)|ACL|2019|TBU|
 |[Improving Language Understanding by Generative Pre-Training (GPT-1)](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)|OpenAI|2018|TBU|
 |[Language Models are Unsupervised Multitask Learners (GPT-2)](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)|OpenAI|2019|TBU|
