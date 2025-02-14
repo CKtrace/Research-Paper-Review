@@ -5,7 +5,7 @@
 ## Abstract
 
 <br>
-s
+
 Connectionist Model에서 시간성을 부여하는 것은 매우 중요하다.
 
 기존의 연구 중, 동적 메모리로 네트워크를 제공하기 위해 recurrent link를 사용하여 이전의 상태를 현재에 반영하도록 한 연구가 있었다.
