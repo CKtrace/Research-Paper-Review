@@ -10,7 +10,7 @@
 
 <div align='center'>
 
-|[Vision](https://github.com/CKtrace/Research-Paper-Review/tree/main/Vision)|[NLP](https://github.com/CKtrace/Research-Paper-Review/tree/main/NLP)|LLM & MMLM|
+|[Vision](https://github.com/CKtrace/Research-Paper-Review/tree/main/Vision)|[NLP](https://github.com/CKtrace/Research-Paper-Review/tree/main/NLP)|LLM & MMLM|||
 |:---:|:---:|:---:|:---:|:---:|
 
 </div>
