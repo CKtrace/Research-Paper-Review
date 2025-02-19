@@ -283,7 +283,84 @@ Modification S_QA 값
 
 <br>
 
+```
+L_m : N_m
+
+L_n : N_n
+
+B_1 : P(a` != a_R | F)
+
+B_2 : P(a = a_r | T)
+
+γ1 : B_2 / (1 - B_1)
+
+γ2 : B_1 / (1 - B_2)
+
+F: Non-Factual
+
+T : Factual
+```
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/5ccc03c2-82c0-4dac-a9fb-cbd14ad2d311" width='500' height='200'>
+
+</p> 
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/7751dd9c-5319-420b-9822-9121f60033a1" width='500' height='200'>
+
+</p> 
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/707a03a8-f856-4e76-b061-bc4ad1909d7f" width='500' height='200'>
+
+</p> 
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/6b280e57-5a2d-44ed-a24f-3b51b5dc1011" width='500' height='200'>
+
+</p> 
+
+<br>
+
+이제 마지막으로 answerability를 반영해주는 경험적으로 alpha 이하의 점수를 가지는 question은 기존 방법처럼 filter out하기보다 alpha를 이용해 N_m과 N_n을 각각 N_m', 
+N_n'으로 soft counting 하는 것이 성능 향상에 도움이 된다고 한다.
+
+a_n은 정의에 따라 L_m, L_n에 있는 ground-truth이고, alpha_n은 question에 대한 answerability score이다.
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/c3b4296b-814e-4924-8ac6-e763f0366ef4" width='500' height='100'>
+
+</p> 
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/10688af9-f0a4-4675-88ce-08fbaae67c4c" width='500' height='100'>
+
+</p> 
+
+<br>
+
 ## SelfCheckGPT with n-gram
 
 <br>
+
+LLM's token probability에 근사 가능한 n-grem Language model을 만든다.
 
