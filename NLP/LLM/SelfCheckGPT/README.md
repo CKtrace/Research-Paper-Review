@@ -43,7 +43,7 @@ SelfCheckGPT는 첫 번째 LLM 응답의 hallucination을 분석하는 모델이
 
 SelfCheckGPT는 샘플 응답들에 대해서만 영향을 받기에, black-box 모델들에 적용할 수 있다는 장점뿐만 아니라 external database가 요구되지 않는다는 장점 또한 존재한다.
 
-SelfCehckGPT는 다섯 가지 사항을 고려한다 : BERTScore, QA, n-gram, NLI(자연어 추론), LLM prompting.
+SelfCheckGPT는 다섯 가지 사항을 고려한다 : BERTScore, QA, n-gram, NLI(자연어 추론), LLM prompting.
 
 해당 모델은 LLM의 중요한 문제의 강력한 첫 번째 baseline 될 뿐더러, grey-box method보다 우수한 hallucination detection method이다.
 
@@ -369,7 +369,7 @@ Main Response인 R + Sampling Data를 training data를 train data로 사용한�
 
 <br>
 
-### SelfCehckGPT with NLI
+### SelfCheckGPT with NLI
 
 <br>
 
@@ -377,9 +377,9 @@ Natural Language Inference (NLI)는 entailment / neutral / contradiction인지 �
 
 NLI는 주로 summarization에서의 faithful을 측정하는데 쓰인다.
 
-이때, 본 논문에서는 NLI의 contradiction score를 SelfCehckGPT의 score로 쓰고자 한다.
+이때, 본 논문에서는 NLI의 contradiction score를 SelfCheckGPT의 score로 쓰고자 한다.
 
-SelfCehckGPT-NLI는 NLI task에 대해 fine-tuning된 DeBERTa-v3-large를 사용한다.
+SelfCheckGPT-NLI는 NLI task에 대해 fine-tuning된 DeBERTa-v3-large를 사용한다.
 
 본 논문에서의 방식은, S^n의 문장들을 concat을 해서 Main Response의 i-th sentence r_i와 비교 가능할 수 있게 한다.
 
@@ -407,7 +407,7 @@ z_e와 z_c는 각각 entailment와 contradiction 클래스의 logits이다.
 
 <br>
 
-결론적으로 SelfCehckGPT NLM score는 위와 같다.
+결론적으로 SelfCheckGPT NLM score는 위와 같다.
 
 <br>
 
@@ -512,7 +512,7 @@ Setting
 
 - Proxy LLM : LLaMA
 
-- SelfCehckGPT prompt : GPT-3 & ChatGPT
+- SelfCheckGPT prompt : GPT-3 & ChatGPT
 ```
 
 <br>
@@ -579,13 +579,13 @@ Proxy LLM으로 사용한 LLaMA는 GPT-3와 생성 패턴이 달라 GPT-3를 사
 
 <br>
 
-결과에도 있듯이 SelfCehckGPT-Prompt는 grey-box의 접근 방법보다 상당하게 좋은 결과를 보여주었다.
+결과에도 있듯이 SelfCheckGPT-Prompt는 grey-box의 접근 방법보다 상당하게 좋은 결과를 보여주었다.
 
 그 뿐만 아니라 전반적으로 grey-box의 접근 방법의 score들보다 전반적으로 높다는 것을 알 수 있다.
 
 <br>
 
-#### (4) SelfCehckGPT with n-gram
+#### (4) SelfCheckGPT with n-gram
 
 <br>
 
@@ -593,11 +593,11 @@ N-gram을 사용했을 때는 N이 작을수록, Avg보다 Max를 사용할 때 
 
 <br>
 
-#### (5) SelfCehckGPT with NLI
+#### (5) SelfCheckGPT with NLI
 
 <br>
 
-SelfCehckGPT with NLI는 SelfCehckGPT prompt 다음으로 성능이 좋았는데, Computational Cost가 높은 SelfCehckGPT prompt를 생각할 때, 해당 방법은 trade-off 관계로도 고려할 수 있다.
+SelfCheckGPT with NLI는 SelfCheckGPT prompt 다음으로 성능이 좋았는데, Computational Cost가 높은 SelfCheckGPT prompt를 생각할 때, 해당 방법은 trade-off 관계로도 고려할 수 있다.
 
 <br>
 
@@ -613,7 +613,7 @@ SelfCehckGPT with NLI는 SelfCehckGPT prompt 다음으로 성능이 좋았는데
 
 <br>
 
-Experiment result figure와 table을 통해서 SelfCehckGPT가 grey-method score, proxy LLM에 비해 human judgement와 상당히 높은 correlation 갖는다는 것을 알 수 있다.
+Experiment result figure와 table을 통해서 SelfCheckGPT가 grey-method score, proxy LLM에 비해 human judgement와 상당히 높은 correlation 갖는다는 것을 알 수 있다.
 
 <br>
 
@@ -631,9 +631,9 @@ Experiment result figure와 table을 통해서 SelfCehckGPT가 grey-method score
 
 해당 섹션에서는 외부 데이터를 사용했을 때와 샘플 개수에 따른 Spearman's RankCC를 확인해본다.
 
-첫 번째로, 외부 데이터를 사용했을 때, SelfCehckGPT가 거의 유사한 성적을 보이지만 낮은 성적을 보이는 것도 상당 수 존재한다.
+첫 번째로, 외부 데이터를 사용했을 때, SelfCheckGPT가 거의 유사한 성적을 보이지만 낮은 성적을 보이는 것도 상당 수 존재한다.
 
-하지만 SelfCehckGPT가 나오게 된 이유를 생각해본다면 SelfCehckGPT의 성능은 매우 큰 파급력이 있다는 것을 알 수 있다. 
+하지만 SelfCheckGPT가 나오게 된 이유를 생각해본다면 SelfCheckGPT의 성능은 매우 큰 파급력이 있다는 것을 알 수 있다. 
 
 <br>
 
@@ -666,6 +666,6 @@ Experiment result figure와 table을 통해서 SelfCehckGPT가 grey-method score
 
 본 논문은 일반적인 LLM의 Hallucination Detection task의 첫 번째 연구이다.
 
-제안한 SelfCehckGPT는 black-box model에서 좋은 성능을 보였다는 것에 의의가 있다.
+제안한 SelfCheckGPT는 black-box model에서 좋은 성능을 보였다는 것에 의의가 있다.
 
 <br>
