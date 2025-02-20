@@ -358,9 +358,314 @@ a_n은 정의에 따라 L_m, L_n에 있는 ground-truth이고, alpha_n은 questi
 
 <br>
 
-## SelfCheckGPT with n-gram
+### SelfCheckGPT with n-gram
 
 <br>
 
-LLM's token probability에 근사 가능한 n-grem Language model을 만든다.
+LLM으로부터 Sampling한 N개의 sample들을 이용해 LLM's token probability에 근사 가능한 n-gram Language model을 만든다.
 
+Main Response인 R + Sampling Data를 training data를 train data로 사용한다. 
+
+
+<br>
+
+### SelfCehckGPT with NLI
+
+<br>
+
+Natural Language Inference (NLI)는 entailment / neutral / contradiction인지 분류하는 것을 전제로 한다.
+
+NLI는 주로 summarization에서의 faithful을 측정하는데 쓰인다.
+
+이때, 본 논문에서는 NLI의 contradiction score를 SelfCehckGPT의 score로 쓰고자 한다.
+
+SelfCehckGPT-NLI는 NLI task에 대해 fine-tuning된 DeBERTa-v3-large를 사용한다.
+
+본 논문에서의 방식은, S^n의 문장들을 concat을 해서 Main Response의 i-th sentence r_i와 비교 가능할 수 있게 한다.
+
+그리고 entailment / contradiction 두 클래스로 고려되며, 식은 아래와 같다.
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/828a4409-fac2-4dd0-a883-e87f28b771de" width='500' height='100'>
+
+</p> 
+
+<br>
+
+z_e와 z_c는 각각 entailment와 contradiction 클래스의 logits이다.
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/60a6e911-1ee2-48c9-a0f2-ee97cfaf193c" width='500' height='150'>
+
+</p> 
+
+<br>
+
+결론적으로 SelfCehckGPT NLM score는 위와 같다.
+
+<br>
+
+
+### SelfCheckGPT with Prompt 
+
+<br>
+
+LLM은 최근 zero-shot setting에서의 document와 summary 간의 정보 일관성 부분에서 효과적인 모습을 보인다.
+ 
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/1c116af5-bb84-4b97-84f4-006d61215719" width='500' height='150'>
+
+</p> 
+
+<br>
+
+S^n에서의 i-th sentence에서 대한 score x_i^n은 {YES : 0.0, NO : 1.0, N/A : 0.5}로 매핑되고 최종적인 수식은 아래와 같다.
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/0eb695da-e9eb-49de-a80f-2db30c21b9d2" width='200' height='100'>
+
+</p> 
+
+<br>
+
+## Data and Annotation
+
+<br>
+
+```
+1. Wikibio Dataset의 individual/concepts을 GPT-3를 이용해 sythetic Wikipedia articles Generation
+2. Manually annotating the factuality of the passage at a sentence level
+3. Evaluating the system's ability to detect hallucination
+```
+
+Wikibio test data 중에서 paragraph 길이가 가장 긴 상위 20%의 238개의 articles를 고른 뒤 각 articles에 해당하는 concept을 GPT-3로 하여금 New article을 generate하게 한다.
+
+GPT-3는 238개의 passage를 generate했으며 all sentences의 개수는 1,908개, 하나의 passage 당 약 184.7개의 토큰으로 구성된다.
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/6c47bb88-871e-4a5b-9e3c-e73659a542a7" width='500' height='150'>
+
+</p> 
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/795ea19f-4e12-4f3e-af7f-0e3c4582b1ed" width='400' height='300'>
+
+</p> 
+
+<br>
+
+Annotation은 코헨 계수를 이용해 직접 두 명의 사람이 진행했다고 한다.
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/1d08aa42-3d14-424b-ad7c-7846f35d529a" width='400' height='500'>
+
+</p> 
+
+<br>
+
+추가적으로 각 passage의 hallucination 정도를 나타내는 score도 존재하는데, 이를 passage-level score라고 한다.
+
+sentence-level label을 (1, 0.5, 0)으로 평균을 낸 값을 사용하는데, 예를 들어, 한 passage를 이루는 모든 sentences가 Major-Inaccurate이라면 passage-level score는 1.0이다.
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/54d5d243-263d-446b-b887-3adfb823992c" width='400' height='300'>
+
+</p> 
+
+<br>
+
+
+## Experiment
+
+<br>
+
+```
+Setting
+
+- Main Response : GPT-3
+
+- Stochastically Sample Responses : GPT-3, N = 20
+
+- Proxy LLM : LLaMA
+
+- SelfCehckGPT prompt : GPT-3 & ChatGPT
+```
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/5dfd9b71-776f-4867-9987-f1346fce2ec9" width='700' height='500'>
+
+</p> 
+
+<br>
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/23d8d0a7-adcd-4053-871e-9371802fdb6f" width='800' height='300'>
+
+</p> 
+
+<br>
+
+### Sentence-level Hallucination Detection
+
+<br>
+
+첫 번째로, 해당 논문에서 제안한 hallucination dectection 방법이 문장들의 factuality 식별이 가능한지 조사한다.
+
+```
+Sentence Level
+
+- Non-factual sentences -> {Major-Inaccurate | Minor-Inaccurate} : two classes
+
+- Factual sentences -> Factual Class
+```
+
+추가적으로 not total hallucination passages에서 Major-Inaccurate한 문장이 존재하는 경우를 non-factual*로 정의한다.
+
+<br>
+
+#### (1) LLM's probabilities p correlate well with factuality
+
+<br>
+
+앞서 언급한 내용처럼 GPT-3와 같은 Grey-Box Model로부터는 Output token probability를 뽑을 수 있고, 이는 factuality를 평가하는데 있어 좋은 baseline이 된다.
+
+실제로 random에 비해 token probability를 사용했을 때 분류가 더 잘됐으며 AUC_PR 또한 상승했다.
+
+이러한 결과는 LLM이 생성한 대부분의 토큰들이 높은 unceratinty를 가져 생성한 정보가 uncertain하면, hallucination detection의 접근을 더욱 용이하게 해준다는 가설을 지지한다.
+
+또한 token probability 사용하는 것이 엔트로피를 사용한 것보다 더욱 좋은 결과를 가져왔다.
+
+<br>
+
+#### (2) Proxy LLM perform noticeably worse than LLM (GPT-3)
+
+<br>
+
+Proxy LLM으로 사용한 LLaMA는 GPT-3와 생성 패턴이 달라 GPT-3를 사용 할 때보다 좋은 성능을 보이지 못한다고 생각한다.
+
+<br>
+
+#### (3) SelfCheckGPT outperforms grey-box approaches
+
+<br>
+
+결과에도 있듯이 SelfCehckGPT-Prompt는 grey-box의 접근 방법보다 상당하게 좋은 결과를 보여주었다.
+
+그 뿐만 아니라 전반적으로 grey-box의 접근 방법의 score들보다 전반적으로 높다는 것을 알 수 있다.
+
+<br>
+
+#### (4) SelfCehckGPT with n-gram
+
+<br>
+
+N-gram을 사용했을 때는 N이 작을수록, Avg보다 Max를 사용할 때 더 좋은 성능을 보였다
+
+<br>
+
+#### (5) SelfCehckGPT with NLI
+
+<br>
+
+SelfCehckGPT with NLI는 SelfCehckGPT prompt 다음으로 성능이 좋았는데, Computational Cost가 높은 SelfCehckGPT prompt를 생각할 때, 해당 방법은 trade-off 관계로도 고려할 수 있다.
+
+<br>
+
+### Passage-level Factuality Ranking
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/90fd8aff-35c9-4ff9-aac7-f3a160ccbb84" width='800' height='250'>
+
+</p> 
+
+<br>
+
+Experiment result figure와 table을 통해서 SelfCehckGPT가 grey-method score, proxy LLM에 비해 human judgement와 상당히 높은 correlation 갖는다는 것을 알 수 있다.
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/a44a494c-bb30-4ec8-aed3-ea8a72ba132f" width='200' height='100'>
+
+</p> 
+
+<br>
+
+### Ablation Studies
+
+<br>
+
+해당 섹션에서는 외부 데이터를 사용했을 때와 샘플 개수에 따른 Spearman's RankCC를 확인해본다.
+
+첫 번째로, 외부 데이터를 사용했을 때, SelfCehckGPT가 거의 유사한 성적을 보이지만 낮은 성적을 보이는 것도 상당 수 존재한다.
+
+하지만 SelfCehckGPT가 나오게 된 이유를 생각해본다면 SelfCehckGPT의 성능은 매우 큰 파급력이 있다는 것을 알 수 있다. 
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/d66ddd4c-7838-4046-ae9f-8748cda93ed8" width='700' height='500'>
+
+</p> 
+
+<br>
+
+또한 Response Sample 수를 늘려보았는데, 전반적으로 성능이 좋아지기는 하지만 N과 Computational Cost는 비례 관계이기에 이는 고려할 사항이다.
+
+특히 N-gram에서 N의 개수는 성능 향상에 큰 도움이 된다는 것 또한 알 수 있다.
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/7fc2967f-50c0-4d79-8e9c-696e44fde0c1" width='400' height='300'>
+
+</p> 
+
+<br>
+
+
+## Conclusion
+
+<br>
+
+본 논문은 일반적인 LLM의 Hallucination Detection task의 첫 번째 연구이다.
+
+제안한 SelfCehckGPT는 black-box model에서 좋은 성능을 보였다는 것에 의의가 있다.
+
+<br>
