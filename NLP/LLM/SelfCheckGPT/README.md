@@ -165,7 +165,7 @@ proxy LLM은 black-box LLM이 생성하는 text의 token-level 확률에 근사�
 ```
 Notation
 
-R : LLM reponse
+R : LLM response
 
 N : Stochastic LLM response samples {S^1, S^2, ..., S^N} (Using Same Query)
 
