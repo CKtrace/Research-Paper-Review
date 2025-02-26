@@ -10,7 +10,7 @@
 |[Convolutional Neural Networks for Sentence Classification (TextCNN)](https://github.com/CKtrace/Research-Paper-Review/tree/main/NLP/TextCNN)|EMNLP|2014|Clear!|
 |[Finding Structure in Time (TextRNN)](https://onlinelibrary.wiley.com/doi/epdf/10.1207/s15516709cog1402_1)|CogSCI|1990|Clear!|
 |[LONG SHORT-TERM MEMORY (TextLSTM)](https://www.bioinf.jku.at/publications/older/2604.pdf)|Neural Computation|1997|TBU|
-|[Learning Phrase Representations using RNN Encoder–Decoderfor Statistical Machine Translation (Seq2Seq)](https://arxiv.org/pdf/1406.1078)|EMNLP|2014|TBU|
+|[Sequence to Sequence with Neural Networks (Seq2Seq)](https://arxiv.org/pdf/1406.1078)|NIPS|2014|TBU|
 |[NEURAL MACHINE TRANSLATIONBY JOINTLY LEARNING TO ALIGN AND TRANSLATE (Seq2Seq with Attention)](https://arxiv.org/pdf/1409.0473)|ICLR|2015|TBU|
 
 <br>
