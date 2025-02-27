@@ -11,7 +11,7 @@
 |[Finding Structure in Time (TextRNN)](https://onlinelibrary.wiley.com/doi/epdf/10.1207/s15516709cog1402_1)|CogSCI|1990|Clear!|
 |[LONG SHORT-TERM MEMORY (TextLSTM)](https://www.bioinf.jku.at/publications/older/2604.pdf)|Neural Computation|1997|TBU|
 |[Sequence to Sequence with Neural Networks (Seq2Seq)](https://arxiv.org/pdf/1406.1078)|NIPS|2014|Clear!|
-
+|[Attention is all you need (Transformer)](https://arxiv.org/pdf/1706.03762)|NIPS|2017|Clear!|
 <br>
 
 ## LLM - Paper List
@@ -20,7 +20,7 @@
 
 |Title|Journal/Conference|Year|Progress|
 |---|:---:|---|:---:|
-|[Attention is all you need (Transformer)](https://arxiv.org/pdf/1706.03762)|NIPS|2017|TBU|
+
 |[BERT: Pre-traning of Deep Bidrectional Tranformers for Language Understanding](https://arxiv.org/pdf/1810.04805)|ACL|2019|TBU|
 |[Improving Language Understanding by Generative Pre-Training (GPT-1)](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)|OpenAI|2018|TBU|
 |[Language Models are Unsupervised Multitask Learners (GPT-2)](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)|OpenAI|2019|TBU|
