@@ -9,7 +9,7 @@
 |[Enriching Word Vectors with Subword Information (FastText)](https://github.com/CKtrace/Research-Paper-Review/tree/main/NLP/FastText)|ACL|2017|Clear!|
 |[Convolutional Neural Networks for Sentence Classification (TextCNN)](https://github.com/CKtrace/Research-Paper-Review/tree/main/NLP/TextCNN)|EMNLP|2014|Clear!|
 |[Finding Structure in Time (TextRNN)](https://onlinelibrary.wiley.com/doi/epdf/10.1207/s15516709cog1402_1)|CogSCI|1990|Clear!|
-|[LONG SHORT-TERM MEMORY (TextLSTM)](https://www.bioinf.jku.at/publications/older/2604.pdf)|Neural Computation|1997|TBU|
+|[LONG SHORT-TERM MEMORY (TextLSTM)](https://www.bioinf.jku.at/publications/older/2604.pdf)|Neural Computation|1997|Clear!|
 |[Sequence to Sequence with Neural Networks (Seq2Seq)](https://arxiv.org/pdf/1406.1078)|NIPS|2014|Clear!|
 |[Attention is all you need (Transformer)](https://arxiv.org/pdf/1706.03762)|NIPS|2017|Clear!|
 <br>
