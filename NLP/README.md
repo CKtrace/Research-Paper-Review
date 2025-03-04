@@ -24,7 +24,6 @@
 |[Improving Language Understanding by Generative Pre-Training (GPT-1)](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)|OpenAI|2018|Clear!|
 |[Language Models are Unsupervised Multitask Learners (GPT-2)](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)|OpenAI|2019|TBU|
 |[TRANSFORMER-XL: LANGUAGE MODELING WITH LONGER-TERM DEPENDENCY](https://openreview.net/pdf?id=HJePno0cYm)|ICLR|2019|TBU|
-|[SELFCHECKGPT : Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models](https://arxiv.org/pdf/2303.08896)|ACL|2023|Clear!|
 
 ```
 추후 정리....
@@ -41,3 +40,11 @@ LLaMa: Open and Efficient Foundation Language Models (2023)
 Claude 2: A Large Language Model for the Next Generation of (2023)
 HyperCLOVAX: A Korean-specific Large Language Model for the Next Generation (2023)
 ```
+
+## Hallucination - Paper List
+
+<br>
+
+|Title|Journal/Conference|Year|Progress|
+|---|:---:|---|:---:|
+|[SELFCHECKGPT : Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models](https://arxiv.org/pdf/2303.08896)|ACL|2023|Clear!|
