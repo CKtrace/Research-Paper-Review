@@ -48,3 +48,4 @@ HyperCLOVAX: A Korean-specific Large Language Model for the Next Generation (202
 |Title|Journal/Conference|Year|Progress|
 |---|:---:|---|:---:|
 |[SELFCHECKGPT : Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models](https://arxiv.org/pdf/2303.08896)|ACL|2023|Clear!|
+|[Evaluating Object Hallucination in Large Vision-Language Models](https://arxiv.org/pdf/2305.10355)|EMNLP|2023|TBU|
