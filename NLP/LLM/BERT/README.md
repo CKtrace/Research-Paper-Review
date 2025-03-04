@@ -52,7 +52,7 @@ ELMo와 task-specific architure를 함께 사용하여 여러 NLP tasks에서 SO
 
 레이블링 되지 않은 데이터로 사전 학습하고 task에 맞게 fine-tuning하는 접근 방식은 scratch부터 학습하는 데에 적은 양의 파라미터만을 요구한다.
 
-이러한 장점을 OPENAI의 GPT 차용했고, 많은 sentence-level tasks에서 SOTA를 달성했다.
+이러한 장점을 OpenAI의 GPT 차용했고, 많은 sentence-level tasks에서 SOTA를 달성했다.
 
 <br>
 
