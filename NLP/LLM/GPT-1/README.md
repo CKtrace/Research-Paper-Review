@@ -207,6 +207,60 @@ Dropout == 0.1
 LR == 6.25e-5
 Batchsize == 32
 Warmup == Over 0.2% of training
-Lambda == 0.5
+Lambda(Weight) == 0.5
 ```
 
+4개의 task 중 12개의 dataset을 사용했고 해당 dataset은 아래와 같다.
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/956e06b6-0f10-400d-810b-85c369007a07" width='700' height='250'>
+
+</p> 
+
+<br>
+
+아래의 table은 12개 중 9개의 SOTA를 달성한 것을 보여주는 테이블이다.
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/7d6d8bd9-d587-4a58-a2a1-4a84d971e782" width='700' height='400'>
+
+</p> 
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/a5cffd85-7018-48be-adcb-21b65a7b3bd2" width='700' height='300'>
+
+</p> 
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/7c4d947c-a129-41c1-8e2b-f51ab65f06fc" width='700' height='300'>
+
+</p> 
+
+<br>
+
+
+## Conclusion
+
+<br>
+
+GPT-1은 기존의 방식들과 달리 각 task에 맞게 architecture를 설계하는 것이 아닌, Generative pre-training모델과 discriminative fine-tuning 모델을 제안했다.
+
+다양하고 길이가 긴 문장을 pre-train 해서 Long-range dependency를 해결하고 12개 중 9개의 task에서 SOTA를 달성했다.
+
+마지막으로 LSTM을 썼을 때보다 Transformer를 썼을 때의 성능이 월등히 높아지는 것을 보여주며, Transformer의 중요성을 다시 한 번 보였다.
+
+(이후 대부분의 Generative Model은 Transformer를 사용한다고 봐도 무방할 정도로 많이 사용한다.)
+
+<br>
