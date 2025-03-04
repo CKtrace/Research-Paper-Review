@@ -24,6 +24,22 @@ RNN, LSTM, Gated RNN는 sequence modelingrhk transduction problem에서 좋은 �
 
 이후 여러 연구에서 해당 문제를 해결하기 위해 많은 노력이 존재했지만 여전히 그 문제는 남아있다.
 
+Attention Mechanism은 input과 output sequence의 distance를 가져갈 수 있게 한다.
+
+```
+Attention Mechanism Figure
+Fig Source : https://wikidocs.net/22893
+```
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/78fc7121-5516-49d8-a585-bbd7a40562f0" width='700' height='350'>
+
+</p> 
+
+<br>
+
 해당 논문에서 제안하는 Transformer는 Recurrence를 삼가고, 오로지 Attention Mechanism만을 기반으로 구조가 이뤄진다.
 
 Transformer는 더욱 병렬에 적합하고 번역에서 SOTA를 달성했다.
