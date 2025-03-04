@@ -129,7 +129,7 @@ k는 context window size이며, 조건부 확률 P는 theta parameter를 사용�
 
 <p align="center">
 
-  <img src="https://github.com/user-attachments/assets/f6197338-ac4a-4820-a189-a2efc936505d" width='350' height='200'>
+  <img src="https://github.com/user-attachments/assets/f6197338-ac4a-4820-a189-a2efc936505d" width='450' height='200'>
 
 </p> 
 
@@ -141,8 +141,72 @@ k는 context window size이며, 조건부 확률 P는 theta parameter를 사용�
 
 Labeled Data C와 sequence of input tokens x^1,...,x^m와 label y로 방정식이 이루어져있다.
 
+<br>
 
+<p align="center">
 
+  <img src="https://github.com/user-attachments/assets/c2dd316a-f132-4c0a-9803-b4f54f1a799a" width='350' height='70'>
 
+</p> 
 
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/57491631-b400-4a3a-81cb-e1233859a0ca" width='350' height='70'>
+
+</p> 
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/5780b011-d05a-4808-902c-ad6caeefcb98" width='350' height='70'>
+
+</p> 
+
+<br>
+
+이전에 언급했던 GPT-1의 4가지 task를 적용하면 각각의 구조는 아래와 같다.
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/dd2f2cb3-fd7c-48de-a71e-c66073f9c1dc" width='700' height='500'>
+
+</p> 
+
+<br>
+
+## Experiments
+
+<br>
+
+### Model specification
+
+<br>
+
+12-layer decoder-only transformer with masked self-attention heads (768 dimenstional states + 12 attention heads)
+
+Position-wise feed-forward networks는 3072 차원의 inner states를 갖는다.
+
+```
+- Adam with Max LR == 2.5e-4
+- BPE
+- L2 regularization w == 0.01
+- GELU (activation function)
+```
+
+### Fine-tuning details
+
+<br>
+
+```
+Dropout == 0.1
+LR == 6.25e-5
+Batchsize == 32
+Warmup == Over 0.2% of training
+Lambda == 0.5
+```
 
