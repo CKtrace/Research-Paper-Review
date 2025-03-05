@@ -94,7 +94,7 @@ Visual Encoder와 LLM이 잘 정렬된다면 LVLM은 우수한 visual understand
 
 <br>
 
-### Object Hallucination
+## Object Hallucination
 
 <br>
 
@@ -105,3 +105,197 @@ Object Hallucination이란 model이 target image에 대해 올바르지 않은 d
 LVLMs이 real-world에 적용될 때, 예를 들어, 자율주행 차량에서 object hallucination이 존재한다면 예상치 못한 events를 만날 수 있게되며 이는 심각한 안전 문제와 직결된다.
 
 이러한 issue를 완화하기 위해 본 연구에서는 LVLMs의 object hallucination 존재 evaluation 방법을 제안한다.
+
+<br>
+
+### Evaluation Settings
+
+<br>
+
+Caption Hallucination Assessment with Image Relevance (CHAIR) image captioning tasks 유명한 tasks이다.
+
+CHAIR는 image가 아닌 caption에서의 hallucination된 비율을 나타낸다.
+
+본 연구에서는 두 가지 변수의 CHAIR를 사용했다.
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/17364db3-c24b-4f2e-b0b1-71cab922d5b5" width='400' height='150'>
+
+</p> 
+
+<br>
+
+본 실험에서는 다음과 같은 5가지 LVLMs을 채택했다 : mPLUG-Owl, LLaVA, Multimodal-GPT, MiniGPT-4
+
+```
+Table 1을 보면 I_1, I_2가 있다.
+
+I_1 : Generate a short caption of the image
+I_2 : Provide a brief description of the given image
+```
+
+그리고 각각 captions에 대한 CHAIR를 구해 Table1과 같은 결과를 얻어냈다.
+
+<br>
+
+### Evaluation Results
+
+<br>
+
+#### Severity of hallucinations
+
+<br>
+
+Table 1을 보면 InstructBLIP이 가장 좋은 CHAIR 성능을 보인다.
+
+가능성이 높은 이유는, 연관이 서로 적은 넓고 다양한 datasets로부터 수집된 visual instructions을 채택하는 InstructBLIP과 달리, 다른 LVLMs은 대부분 unimodal LLMs이 생성해낸 visual instructions을 채택한다.
+
+LLMs에서 생성해낸 visual instructions은 더욱 길고 정보가 많아 일반적으로 좋지만, LLM의 hallucination으로 unexpected descriptive information이 담길 수도 있다.
+
+<br>
+
+#### Disadvantages of CHAIR
+
+<br>
+
+CHAIR metric을 사용하면 모델이 서로 다른 instruction을 택했을 때(I_1, I_2) CHAIR metric은 불안정하다.
+
+따라서 LVLM의 object hallucination을 안정적이고 편하게 구할 수 있는 방법이 요구된다.
+
+<br>
+
+## Influence of Instruction Data on Object Hallucination
+
+<br>
+
+본 section에서는 visual instruction data의 영향을 조사해본다.
+
+<br>
+
+### Hypotheses
+
+본 연구에서 세운 가설은 두 가지가 존재한다.
+
+1. Visual Instruct Datasets에서 자주 나오는 ojects이면 hallucinate될 확률이 높을거다.
+2. Co-occuring objects Frequency가 높을수록 halllucinate될 확률이 높을거다.
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/eab85e53-b134-4995-bd49-2e563bc265db" width='700' height='500'>
+
+</p> 
+
+<br>
+
+Figure 2의 (a)는 MSCOCO에서 Frequency가 높은 10개의 objects의 hallucinatation 횟수를 나타낸 것이고,
+Figure 2의 (b)는 MSCOCO에서 'dining table'과 Co-occuring Frequency가 높은 10개의 단어들의 halllucination 횟수를 나타낸 것이다.
+
+해당 결과를 통해 두 가지 가설을 증명할 수 있었다.
+
+<br>
+
+### Quantitative Analysis
+
+<br>
+
+위에서 얻은 지식들을 통합하기 위해, 등장 빈도와 hallucination 횟수의 consistency를 측정하기 위해 top-k hit ratio(HR@k)를 채택했다.
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/e6c24131-a2fe-448e-bdc5-59c76a9c2e75" width='400' height='100'>
+
+</p> 
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/0eba8ef4-972e-4411-9631-c2a8868e6d96" width='400' height='100'>
+
+</p> 
+
+<br>
+
+Hallucinated(i)는 i-th example의 hallucinated objects의 개수를 뜻하고, Hit@k(i)는 top-k frequency 횟수를 나타낸다.
+
+또한, Hit@k(i, o)는 object o와 동시발생하는 top-k frequency 횟수를 나타낸다.
+
+<br>
+
+## POPE
+
+<br>
+
+Polling-based Object Probing Evaluation (POPE)는 LVLMs의 Hallucination을 간단하고 효과적으로 평가할 수 있는 접근 방법이다.
+
+POPE Pipeline은 아래와 같다.
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/365447a0-0aa7-455e-b4f6-feaf8e11a8aa" width='700' height='400'>
+
+</p> 
+
+<br>
+
+이때 Automatic Segmentation tools은 SEEM을 사용하였다고 한다.
+
+또한 해당 파이프라인에서는 아래와 같은 세 가지 세팅으로 실험을 진행했다.
+
+- Random Sampling : Image에 없는 Object random sample
+- Popular Sampling : 전체 데이터셋의 object 중 Top-k most freqeunt object 중 현재 Image에 없는 object
+- Adversarial Sampling : Rank all objects according to their Co-occuring frequencies with the ground-truth objects -> Select top-k freqeunt ones(현재 Image에 없는 Object)
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/0e59bf9a-ca70-447b-af74-ea398d724c14" width='700' height='400'>
+
+</p> 
+
+<br>
+
+### Advantages of POPE
+
+<br>
+
+기존의 CHAIR로 LVLM을 평가할 시, LVLM은 프롬프트에 민감하고 object annotation이 요구되며 수동으로 평가를 위한 규칙을 지정해줘야 했다.
+
+하지만 POPE를 사용할 경우 _Stability_, _Scalability_(Without annotation), _consistency_(Yes/No 응답의 일관성)
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/8dbde542-b4c7-4e72-83dc-378688f23750" width='700' height='200'>
+
+</p> 
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/0afa9785-7a32-4eaf-9de3-d8764ac6d7d2" width='700' height='300'>
+
+</p> 
+
+<br>
+
+## Conclusion
+
+<br>
+
+본 논문에서는 input instructions과 LVLM에서 생성된 text로 인해 hallucinatation evaluation method가 영향을 받아 evaluation result의 신뢰도가 떨어지는 문제를
+POPE를 통해 해결하고자 했다.
+
+<br>
