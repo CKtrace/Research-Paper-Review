@@ -27,12 +27,12 @@
 |[XLNet: Generalized Autoregressive Pretraining for Language Understanding](https://arxiv.org/pdf/1906.08237)|NIPS|2019|TBU|
 |[Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer(T3)](https://dl.acm.org/doi/pdf/10.5555/3455716.3455856)|JMLR|2020|TBU|
 |[Language Models are Few-Shot Learners (GPT-3)](https://arxiv.org/pdf/2005.14165)|NIPS|2020|TBU|
+|[LaMDA: Language Models for Dialog Applications](https://arxiv.org/pdf/2201.08239)|Google I/O|2021|TBU|
+|[Pathway Language Model: A Novel Neural Architecture for Natural Language Processing](https://arxiv.org/pdf/2204.02311)|arXiv|2022|TBU|
+|[LLaMA: Open and Efficient Foundation Language Models](https://arxiv.org/pdf/2302.13971)|arXiv|2023|TBU|
 
 ```
 추후 정리....
-LaMDA: Language Models for Dialogue Applications (2021)
-Pathway Language Model: A Novel Neural Architecture for Natural Language Processing (2022)
-LLaMa: Open and Efficient Foundation Language Models(2023)
 GPT_4: A Large Multimodal Model for Generating Text, Translating Languages, Writing defferent Kinds of Creative Content, and Answering Your Questions in a Informative Way(2023)
 PaLM-E: An Embodied Multimodal Language Model (2023)
 LLaMa: Open and Efficient Foundation Language Models (2023)
