@@ -93,3 +93,156 @@ Evaluation 동안, 마지막 단어를 한 개씩 예측하기 위해 training�
 
 위에서 언급한 fixed-length를 사용할 때의 문제점을 해결하고자 해당 연구에서는 Transformer 구조에 recurrence mechanism을 적용한다.
 
+Transformer-XL은 fixed & cached한 previous segment를 next new segment에 재사용한다.
+
+이러한 Additional Input은 과거 정보를 충분하게 하고, 이는 longer-term dependency를 가지며 context fragmentation(정보 불충분)을 피하게 한다.
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/a1c460f0-c5da-4083-af60-42c71ecf436c" width='300' height='50'>
+
+</p> 
+
+<br>
+
+위의 값은 new segment의 n-1 hidden layer의 할당되는 값이며, 실제로 previous segment의 동일한 위치의 hidden layer의 stop-gradient를 한 값을 현재 값과 concat하는 것을 확인할 수 있다.
+
+Stop-gradient를 통해 backpropagation시, previous segment의 hidden state에서 사용된 parameter는 학습되지 않는다.
+
+W는 모델의 파라미터를 의미한다.
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/833855fe-8e5b-417c-bb56-956a202d3b86" width='700' height='50'>
+
+</p> 
+
+<br>
+
+Transformer-XL의 q, k, v의 값은 위와 같으며, 기존의 transformer와 달리 key, value에 이전 segment의 정보가 들어있음을 알 수 있다.
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/579e7436-837d-466f-b2a0-a072206008a0" width='500' height='50'>
+
+</p> 
+
+<br>
+
+만들어진 Query, Key, Value를 이용해 현재 Segment의 n번 째 hidden layer의 hidden state를 만든다.
+
+
+하지만 수식을 보면 n일 때의 q, k, v를 n-1일 때의 값을 이용해 구하기 때문에, Segment 하나 당 하나의 layer씩 밀린다.
+
+이러한 문제점으로 인해 최대 의존 관계는 (Segment Length x Layer 개수)로 제한했다.
+
+위 fig2의 (b)를 보면 Segment Length가 4이고, Layer 개수가 3이므로 최대 12의 의존성을 가질 수 있다.
+
+Evaluation 시, vanilla Transformer처럼 sliding windows 방식이 아닌 previous segment를 cahced 해서 사용하기 때문에 약 1,800 배 빠른 연산이 가능하다.
+
+
+<br>
+
+### Relative Positional Encodings
+
+<br>
+
+위에서 말한 방법을 사용하기 위해서는 해결해야 하는 문제가 존재한다.
+
+바로 Positional Encoding이다.
+
+Vanilla Transformer는 Word embedding 값에 positional encoding(absolute Position) 값을 더해주는 방식을 사용하는데, 이는 이전 state와 현재 state를 구성할 때 사용하는 positional encoding 값이 같게 되어 제안하는 Transformer-XL에서는 사용할 수 없다.
+
+Positional Encoding은 Model에게 토큰의 위치에 대한 Clue/Bias를 제공하는데, 이를 절대적인 방식이 아닌 상대적인 방식으로 제공하고자 Relative Positional Encoding 방식을 제안한다.
+
+해당 방식은 각 토큰의 위치를 나타내는 absolute Encoding 대신 두 토큰 사이의 거리를 나타내는 0 ~ L_max 사이의 Relative Encoding을 만드는 방식이다.
+
+위에서 언급한 Vanilla Transformer의 차이점을 제외한 그 이외의 구성은 동일하다.
+
+<br>
+
+## Experiment
+
+<br>
+
+본 논문에서는 Transformer-XL를 여러 데이터 셋 (WikiText-103, enwik8, text8, One Billion Word)으로 실험을 해 비교를 했으며 각 데이터 셋을 통해 보여주고 싶었던 내용은 아래와 같다.
+
+1. WikiText-103 => 가장 큰 Word 단위를 가지며, long-term Dependency를 측정
+2. enwik8 => 정제되지 않은 Wikipedia 데이터셋에서의 성능
+3. text8 => 정제된 Wikipedia 데이터셋에서의 성능
+4. One Billion Word => 문장들을 섞어 Long-term dependency 보존 X, Short-term dependency 측정
+
+<br>
+
+### 1. WikiText-103
+
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/30c31e04-71f6-4138-ad87-abff8e9b9bfc" width='500' height='350'>
+
+</p> 
+
+<br>
+
+### 2. enwik8
+
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/2e0ea67a-4534-4133-899c-7c270a58ecf6" width='500' height='350'>
+
+</p> 
+
+<br>
+
+Transformer-XL은 Layer가 많아질수록 더욱 좋은 성능을 보이는 것을 확인할 수 있었다.
+
+<br>
+
+### 3. text8
+
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/4f9f55a6-3426-485e-b7c3-18e9dc3ea204" width='500' height='350'>
+
+</p> 
+
+<br>
+
+본 실험에서는 enwik8에서 좋은 성능을 보여준 parameter로 학습을 진행했고 SOTA 달성
+
+<br>
+
+### 4. One Billion Word
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/92a74c72-b5c4-4367-8a0c-025d3262fc17" width='500' height='350'>
+
+</p> 
+
+<br>
+
+본 실험에서는 Transformer-XL이 short-term dependency에도 Robust하다는 것을 보여준 실험이었다.
+
+<br>
+
+## Conclusion
+
+<br>
+
+Transformer-XL은 perplexity에 강한 결과들을 보여주었으며, RNN, LSTM보다 Long-term dependency한 성격을 보여주었다.
+
+그 뿐만 아니라, evaluation 속도 또한 증가시킬 수 있었다.
+
+
