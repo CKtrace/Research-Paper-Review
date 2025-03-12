@@ -177,3 +177,17 @@ Table3에서 보다시피, ground-truth answers로 개선시킨 instruction of h
 
 위와 같은 _sampling-then-filtering_ process를 통해 30,000개의 세 개의 tasks에서 hallucinated samples를 만들어 낼 수 있었다.
 
+(Alpacca 부분 채우기)
+
+Hallucination은 세 가지 측면으로 구성된다.
+
+1. Unverifiable
+2. Non-factual
+3. Irrelevant
+
+<br>
+
+### Labeler Details
+
+<br>
+
