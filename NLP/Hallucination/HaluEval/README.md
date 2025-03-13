@@ -177,7 +177,6 @@ Table3에서 보다시피, ground-truth answers로 개선시킨 instruction of h
 
 위와 같은 _sampling-then-filtering_ process를 통해 30,000개의 세 개의 tasks에서 hallucinated samples를 만들어 낼 수 있었다.
 
-<<<<<<< HEAD
 <br>
 
 ### Human Annotation
@@ -196,8 +195,6 @@ Hallucinated samples 생성하기 위해 추가적으로 human labelers도 고�
 
 1. Hallucination 문제 해결을 위한 연구의 필요성 강조
 2. HaluEval Dataset을 통한 향후 LLM Hallucination 연구에 기여 
-=======
-(Alpacca 부분 채우기)
 
 Hallucination은 세 가지 측면으로 구성된다.
 
@@ -211,4 +208,3 @@ Hallucination은 세 가지 측면으로 구성된다.
 
 <br>
 
->>>>>>> 8172ce28e57436718431ecb2808119d9a898cca4
