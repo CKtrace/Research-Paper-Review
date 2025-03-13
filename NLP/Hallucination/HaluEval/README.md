@@ -195,7 +195,6 @@ Hallucinated samples 생성하기 위해 추가적으로 human labelers도 고�
 
 1. Hallucination 문제 해결을 위한 연구의 필요성 강조
 2. HaluEval Dataset을 통한 향후 LLM Hallucination 연구에 기여 
-=======
 
 Hallucination은 세 가지 측면으로 구성된다.
 
