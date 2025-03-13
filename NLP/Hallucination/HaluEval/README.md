@@ -177,3 +177,21 @@ Table3에서 보다시피, ground-truth answers로 개선시킨 instruction of h
 
 위와 같은 _sampling-then-filtering_ process를 통해 30,000개의 세 개의 tasks에서 hallucinated samples를 만들어 낼 수 있었다.
 
+<br>
+
+### Human Annotation
+
+<br>
+
+Hallucinated samples 생성하기 위해 추가적으로 human labelers도 고용하여 ChatGPT의 responses가 hallucinated content를 포함하는지 annotate하게 했다. 
+
+<br>
+
+### Conclusion
+
+<br>
+
+타 모델들과 달리 GPT-4가 가장 정확한 답변들을 내놓았지만, 여전히 Hallucination problem은 해결되지 않았다.
+
+1. Hallucination 문제 해결을 위한 연구의 필요성 강조
+2. HaluEval Dataset을 통한 향후 LLM Hallucination 연구에 기여 
