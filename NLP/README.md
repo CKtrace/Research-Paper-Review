@@ -9,9 +9,9 @@
 |[Enriching Word Vectors with Subword Information (FastText)](https://github.com/CKtrace/Research-Paper-Review/tree/main/NLP/Basic%20of%20NLP/FastText)|ACL|2017|Clear!|
 |[Convolutional Neural Networks for Sentence Classification (TextCNN)](https://github.com/CKtrace/Research-Paper-Review/tree/main/NLP/Basic%20of%20NLP/TextCNN)|EMNLP|2014|Clear!|
 |[Finding Structure in Time (TextRNN)](https://github.com/CKtrace/Research-Paper-Review/tree/main/NLP/Basic%20of%20NLP/TextRNN)|CogSCI|1990|Clear!|
-|[LONG SHORT-TERM MEMORY (TextLSTM)](https://www.bioinf.jku.at/publications/older/2604.pdf)|Neural Computation|1997|Clear!|
-|[Sequence to Sequence with Neural Networks (Seq2Seq)]([https://arxiv.org/pdf/1406.1078](https://github.com/CKtrace/Research-Paper-Review/tree/main/NLP/Basic%20of%20NLP/Seq2Seq))|NIPS|2014|Clear!|
-|[Attention is all you need (Transformer)](https://arxiv.org/pdf/1706.03762)|NIPS|2017|Clear!|
+|[LONG SHORT-TERM MEMORY (TextLSTM)](https://github.com/CKtrace/Research-Paper-Review/tree/main/NLP/Basic%20of%20NLP/TextLSTM)|Neural Computation|1997|Clear!|
+|[Sequence to Sequence with Neural Networks (Seq2Seq)](https://github.com/CKtrace/Research-Paper-Review/tree/main/NLP/Basic%20of%20NLP/Seq2Seq)|NIPS|2014|Clear!|
+|[Attention is all you need (Transformer)](https://github.com/CKtrace/Research-Paper-Review/tree/main/NLP/Basic%20of%20NLP/Transformer)|NIPS|2017|Clear!|
 <br>
 
 ## LLM - Paper List
