@@ -1,4 +1,4 @@
-# NLP - Paper List
+## NLP - Paper List
 
 <br>
 
@@ -35,7 +35,6 @@
 추후 정리....
 GPT_4: A Large Multimodal Model for Generating Text, Translating Languages, Writing defferent Kinds of Creative Content, and Answering Your Questions in a Informative Way(2023)
 PaLM-E: An Embodied Multimodal Language Model (2023)
-LLaMa: Open and Efficient Foundation Language Models (2023)
 Claude 2: A Large Language Model for the Next Generation of (2023)
 HyperCLOVAX: A Korean-specific Large Language Model for the Next Generation (2023)
 ```
@@ -50,3 +49,12 @@ HyperCLOVAX: A Korean-specific Large Language Model for the Next Generation (202
 |[A Survey of Hallucination in "Large" Foundation Models](https://arxiv.org/pdf/2309.05922)|arXiv|2023|Clear!|
 |[Evaluating Object Hallucination in Large Vision-Language Models](https://arxiv.org/pdf/2305.10355)|EMNLP|2023|Clear!|
 |[HaluEval: A Large-Scale Hallucination Evaluation Benchmark for Large Language Models](https://aclanthology.org/2023.emnlp-main.397.pdf)|EMNLP|2023|Clear!|
+
+## Vision Language Model  - Paper List
+
+<br>
+
+|Title|Journal/Conference|Year|Progress|
+|---|:---:|---|:---:|
+|[IMPROVE VISION LANGUAGE MODEL CHAIN-OF-THOUGHT REASONING](https://github.com/CKtrace/Research-Paper-Review/tree/main/NLP/VLM/Improve_Vision_Language_Model_Chain-Of-Thought_Reasoning)|ICLR|2025|Clear!|
+|[The CoT COLLECTION: Improving Zero-shot and Few-shot Learning of Language Models via Chain-of-Thought Fine-Tuning](https://arxiv.org/pdf/2305.14045)|EMNLP|2023|TBU|
