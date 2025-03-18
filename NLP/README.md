@@ -29,7 +29,7 @@
 |[Language Models are Few-Shot Learners (GPT-3)](https://arxiv.org/pdf/2005.14165)|NIPS|2020|TBU|
 |[LaMDA: Language Models for Dialog Applications](https://arxiv.org/pdf/2201.08239)|Google I/O|2021|TBU|
 |[Pathway Language Model: A Novel Neural Architecture for Natural Language Processing](https://arxiv.org/pdf/2204.02311)|arXiv|2022|TBU|
-|[LLaMA: Open and Efficient Foundation Language Models](https://arxiv.org/pdf/2302.13971)|arXiv|2023|TBU|
+|[LLaMA: Open and Efficient Foundation Language Models](https://arxiv.org/pdf/2302.13971)|arXiv|2023|Clear!|
 
 ```
 추후 정리....
