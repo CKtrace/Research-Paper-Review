@@ -6,6 +6,20 @@ from torch.nn.init import normal_, ones_, zeros_
 class GPT(Module):
     def __init__(self, vocab: int, seq: int, n_layer: int, n_heads: int, dim: int, hiddem: int, dropout: float, device: str):
         super().__init__()
+        
+        """
+        Initialize GPT-1 Main Module
+
+        vocab: vocabulary size
+        seq: window size
+        n_layers: number of transformer block layers
+        n_heads: number of multi-headed attention heads per block
+        dim: embedding dimension
+        hidden: number of hidden units
+        dropout: dropout amount
+        device: device to load model onto
+        """
+
         self.bpe_embed = Embedding(vocab, dim).to(device)
         self.pos_embed = Embedding(seq, dim).to(device)
         self.pos = LongTensor([i for i in range(128)]).to(device)
@@ -39,6 +53,13 @@ class GPT(Module):
         ]
 
         for name, parameter in self.named_parameters():
+            """
+            Return Model parameters with corresponding weight decay parameter for optimizer
+
+            Return : (List[Dict]): List of parameters with corresponding weight decay
+            """
+
+
             if ('att' in name or 'ffl' in name or 'output' in name) and name.endswith('weight'):
                 params[0]['params'].append(parameter)
             
@@ -46,7 +67,6 @@ class GPT(Module):
                 params[1]['params'].append(parameter)
 
         return params
-
 class TransformerBlock(Module):
 
     def __init__(self, n_heads: int, dim: int, hidden: int, dropout: float, device: str):
@@ -74,4 +94,96 @@ class MultiHeadAttentionLayer(Module):
         super().__init__()
         self.heads = ModuleList([
             SelfAttention(dim, dim // n_heads, device)
+            for i in range(n_heads)
         ])
+        self.wo = Linear(dim, dim).to(device)
+        self.init_weights()
+
+    def init_weights(self):
+        normal_(self.wo.weight, mean=0.0, std=0.02)
+        zeros_(self.wo.bias)
+
+    def forward(self, x, ignore):
+        out = cat([head(x, ignore) for head in self.heads], dim=2)
+        return self.wo(out)
+    
+
+class SelfAttentionLayer(Module):
+    def __init__(self, d_in: int, d_out: int, device: str):
+        """
+        Initialize self-attention layer
+
+        d_in: input tensor size
+        d_out: output tenosor size
+        device: device to load layer onto
+       """
+
+        super().__init__()
+        self.wq = Linear(d_in, d_out).to(device)
+        self.wk = Linear(d_in, d_out).to(device)
+        self.wv = Linear(d_in, d_out).to(device)
+        self.scale = sqrt(Tensor([d_out])).to(device)
+        self.softmax = Softmax(dim=2).to(device)
+        self.device = device
+        self.init_weights()
+
+    def init_weights(self):
+        normal_(self.wq.weight, mean=0.0, std=0.02)
+        normal_(self.wk.weight, mean=0.0, std=0.02)
+        normal_(self.ww.weight, mean=0.0, std=0.02)
+        zeros_(self.wq.bias)
+        zeros_(self.wk.bias)
+        zeros_(self.wv.bias)
+
+
+    def forward(self, x, ignore):
+        q = self.wq(x)
+        k = self.wk(x)
+        v = self.wv(x)
+
+        att = einsum('bdq, bkd->bqk', q, k)
+        att /= self.scale
+
+        casual_mask = tril(ones(att.shape)).to(self.device)
+        ignore_mask = self.get_ignore_mask(att, ignore)
+        mask = casual_mask * ignore_mask
+
+        att = att.masked_fill(mask==0, float('-inf'))
+        att = self.softmax(att)
+        att = einsum('bqk, bkd->bqd', att, v)
+
+        return att
+    
+    def get_ignore_mask(self, att: Tensor, ignore: Tensor) -> Tensor:
+        """
+        Create Mask for attention indices to be ignored
+        """
+
+        ignore_mask = ones(att.shape).to(self.device)
+        ignore_mask = einsum(
+            'bqk, bk->bqk',
+            ignore_mask,
+            (ignore==0).float()
+        )
+        ignore_mask += triu(tril(ones(att.shape))).to(self.device)
+        ignore_mask[(ignore_mask==2)] = 1
+
+        return ignore_mask
+    
+class FeedForwardLayer(Module):
+    def __init__(self, d_in: int, d_h: int, device: str):
+        super().__init__()
+        self.l1 = Linear(d_in, d_h).to(device)
+        self.l2 = Linear(d_h, d_in).to(device)
+        self.gelu = GELU().to(device)
+
+    def init_weights(self) -> None:
+        normal_(self.l1.weight, mean=0.0, std=0.02)
+        normal_(self.l2.weight, mean=0.0, std=0.02)
+        zeros_(self.l1.bias)
+        zeros_(self.l2.bias)
+
+    def forward(self, x: Tensor) -> Tensor:
+        out = self.l1(x)
+        out = self.l2(out)
+        return self.gelu(out)
