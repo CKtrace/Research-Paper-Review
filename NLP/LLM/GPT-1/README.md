@@ -72,9 +72,19 @@ Unsupervised pre-training은 Semi-supervised Learning의 special case이며 good
 
 하지만 해당 연구에서 pre-training을 통해 linguistic information을 잡아내는데에는 성공적이었지만, LSTM을 사용해 short range의 예측 밖에 할 수 없었다.
 
-이러한 문제점 때문에, 본 연구에서는 LSTM 대신 Transformer를 채택했고, 이는 linguistic structure에서 longer-range를 잡아낼 수 있었다.
+이러한 문제점 때문에, 본 연구에서는 LSTM 대신 Transformer의 Decoder를 채택했고, 이는 linguistic structure에서 longer-range를 잡아낼 수 있었다.
 
 또한 본 논문에서 제안한 GPT-1은 wider range of task에서 효과적인 모습을 보인 것 또한 증명했다.
+
+Transfomer의 Decoder 부분은 아래와 같다.
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/264af8a8-255b-4855-be31-cedae1f09ac2" width='350' height='500'>
+
+</p> 
 
 <br>
 
